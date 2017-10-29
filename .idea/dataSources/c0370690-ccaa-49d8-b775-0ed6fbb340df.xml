@@ -12,135 +12,105 @@
     <schema id="6" parent="1" name="pydbconn"/>
     <schema id="7" parent="1" name="sys"/>
     <table id="8" parent="2" name="user_accounts"/>
-    <table id="9" parent="2" name="user_expenses"/>
-    <table id="10" parent="2" name="user_incomes"/>
-    <column id="11" parent="8" name="id">
+    <table id="9" parent="2" name="user_transactions"/>
+    <column id="10" parent="8" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="12" parent="8" name="email">
+    <column id="11" parent="8" name="email">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="13" parent="8" name="password">
+    <column id="12" parent="8" name="password">
       <Position>3</Position>
       <DataType>varchar(35)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="8" name="name">
+    <column id="13" parent="8" name="name">
       <Position>4</Position>
       <DataType>varchar(35)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="8" name="date_created">
+    <column id="14" parent="8" name="date_created">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="8" name="last_login_date">
+    <column id="15" parent="8" name="last_login_date">
       <Position>6</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="17" parent="8" name="current_balance">
+    <column id="16" parent="8" name="current_balance">
       <Position>7</Position>
       <DataType>float(10,2)|0</DataType>
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
     </column>
-    <index id="18" parent="8" name="email">
+    <index id="17" parent="8" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="19" parent="8" name="PRIMARY">
+    <key id="18" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="20" parent="8" name="email">
+    <key id="19" parent="8" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <column id="21" parent="9" name="id">
+    <column id="20" parent="9" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="22" parent="9" name="expense_type">
+    <column id="21" parent="9" name="transaction_type">
       <Position>2</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="9" name="expense_title">
+    <column id="22" parent="9" name="category">
       <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="23" parent="9" name="title">
+      <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="24" parent="9" name="description">
-      <Position>4</Position>
+      <Position>5</Position>
       <DataType>varchar(250)|0</DataType>
     </column>
     <column id="25" parent="9" name="amount">
-      <Position>5</Position>
+      <Position>6</Position>
       <DataType>float(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="26" parent="9" name="date_added">
-      <Position>6</Position>
+      <Position>7</Position>
       <DataType>datetime|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="27" parent="9" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="28" parent="9" name="user_expenses_ibfk_1">
-      <ColNames>id</ColNames>
-      <RefSchemaName>expense_manager</RefSchemaName>
-      <RefTableName>user_accounts</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="29" parent="10" name="id">
-      <Position>1</Position>
+    <column id="27" parent="9" name="user_id">
+      <Position>8</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="30" parent="10" name="income_source">
-      <Position>2</Position>
-      <DataType>varchar(50)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="31" parent="10" name="income_title">
-      <Position>3</Position>
-      <DataType>varchar(50)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="32" parent="10" name="description">
-      <Position>4</Position>
-      <DataType>varchar(250)|0</DataType>
-    </column>
-    <column id="33" parent="10" name="amount">
-      <Position>5</Position>
-      <DataType>float(10,2)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="34" parent="10" name="date_added">
-      <Position>6</Position>
-      <DataType>datetime|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="35" parent="10" name="PRIMARY">
+    <index id="28" parent="9" name="user_transactions_ibfk_1">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="29" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="36" parent="10" name="user_incomes_ibfk_1">
-      <ColNames>id</ColNames>
+    <foreign-key id="30" parent="9" name="user_transactions_ibfk_1">
+      <ColNames>user_id</ColNames>
       <RefSchemaName>expense_manager</RefSchemaName>
       <RefTableName>user_accounts</RefTableName>
       <RefColNames>id</RefColNames>
