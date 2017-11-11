@@ -1,5 +1,5 @@
 class User:
-    #Constructor
+    #Constructor for user class
     def __init__(self, id, email, password, name, date_created, last_login_date, current_balance):
         self._id = id
         self._email = email
