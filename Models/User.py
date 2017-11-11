@@ -9,12 +9,13 @@ class User:
         self._last_login_date = last_login_date
         self._current_balance = current_balance
 
+    # Setter methods
     def set_name(self, name):
         self._name = name
 
     def set_password(self, password):
         self._password = password
-
+    
     def get_id(self):
         return self._id
 
