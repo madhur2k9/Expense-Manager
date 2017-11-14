@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Login</title>
+        <script src="index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+    </head>
+    <body>
+        <h1>Expense Manager</h1>
+        <div>
+            <h3>Login</h3>
+            <table>
+                <tr>
+                    <td class="table-data">Email</td>
+                    <td class="table-data"><input type="email" id="Email" placeholder="griffin.peter@famguy.com"/></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Password</td>
+                    <td class="table-data"><input type="password" id="Password" placeholder="Password"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button-td table-data"><button onclick="validateLogin()">Login</button></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+        <div>
+            <a href="index.html">Register here</a>
+        </div> 
+    </body>
+</html>

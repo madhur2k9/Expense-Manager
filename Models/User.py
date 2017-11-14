@@ -13,9 +13,12 @@ class User:
     def set_name(self, name):
         self._name = name
 
+    def set_current_balance(self, balance):
+        self._current_balance = balance
+
     def set_password(self, password):
         self._password = password
-    
+
     def get_id(self):
         return self._id
 

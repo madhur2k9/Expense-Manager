@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Transactions</title>
+        <script src="index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+    </head>
+    <body>
+        <h1>Expense Manager</h1>
+        <div>
+            <h3>Transactions</h3>
+            <table>
+                <tr>
+                    <td class="table-data">Transaction Type</td>
+                    <td class="table-data">
+                        <select id="tranType" onchange="handleTransTypeOnChange()">
+                            <option value="income" selected>Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="Income">
+                    <td class="table-data">Category</td>
+                    <td class="table-data">
+                        <select id="inc">
+                            <option value="Pay" selected>Pay</option>
+                            <option value="Gift">Gift</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <select id="exp">
+                            <option value="Food" selected>Food</option>
+                            <option value="Grocery">Grocery</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Utility">Utility</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-data">Title</td>
+                    <td class="table-data"><input type="text" id="title" placeholder="Monthly Pay"/></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Description (Optional)</td>
+                    <td class="table-data"><input type="text" id="description" placeholder="My First Pay"/></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Amount ($)</td>
+                    <td class="table-data"><input type="number" id="amount" placeholder="1234.00"/></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Date (Optional)</td>
+                    <td class="table-data"><input type="date" id="date"/></td>
+                </tr>
+                <tr>
+                    <td class="table-data button-td" colspan="2">
+                        <button onclick="recordTransaction()">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div> 
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Expense Manager</title>
+        <script src="index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+    </head>
+    <body>
+        <h1>Expense Manager</h1>
+        <div>
+            <h3>Registration</h3>
+            <table>
+                <tr>
+                    <td class="table-data">Name</td>
+                    <td class="table-data"><input type="text" id="Name" placeholder="Peter Griffin"/></td>
+                    <td class="table-data"><span>Name should be a minimum of 4 characters.</span></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Email</td>
+                    <td class="table-data"><input type="email" id="Email" placeholder="griffin.peter@famguy.com"/></td>
+                    <td class="table-data"><span>Should be valid.</span></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Password</td>
+                    <td class="table-data"><input type="password" id="Password" placeholder="Password"/></td>
+                    <td class="table-data"><span>Password should be a minimum of 6 and a maximum of 15 characters.</span></td>
+                </tr>
+                <tr>
+                    <td class="table-data">Re-Enter Password</td>
+                    <td class="table-data"><input type="password" id="ReEnterPassword" placeholder="Password"/></td>
+                    <td class="table-data"><span>Be sure passwords match.</span></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="table-data registration-button-td"><button onclick="validateFields()">Register</button></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+        <div>
+            <a href="login.html">Login</a>
+        </div>
+        
+    </body>
+</html>

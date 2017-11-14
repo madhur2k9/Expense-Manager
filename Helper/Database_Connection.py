@@ -96,7 +96,7 @@ def get_user_id(email):
     else:
         return -999
 
-def record_transaction(transac_type, category, title, description, amount, user_id):
+def record_transaction(transac_type, category, title, description, amount, user_id, current_balance):
     query = 'INSERT INTO user_transactions (transaction_type, category, title, description, amount, date_added, user_id)' \
             'VALUES (%s,%s,%s,%s,%s,%s,%s)'
     current_date = datetime.datetime.now()
@@ -104,26 +104,20 @@ def record_transaction(transac_type, category, title, description, amount, user_
     db = connect()
     cursor = db.cursor()
     cursor.execute(query,args)
+    current_balance = emu.recalc_current_balance(transac_type,amount,current_balance)
+    query = "UPDATE user_accounts SET current_balance = %s WHERE id = %s;"
+    args = (current_balance, user_id)
+    cursor.execute(query,args)
+    global user
+    user.set_current_balance(current_balance)
     # TO DO Refactor the following 3 lines
     db.commit()
     cursor.close()
     db.close()
 
 def get_all_transactions(user_id):
-    query = 'SELECT * from user_transactions WHERE user_id = %s'
-    args = (user_id,)
-    db = connect()
-    cursor = db.cursor()
-    cursor.execute(query, args)
-    rows = None
-    rows = cursor.fetchall()
-    db.commit()
-    cursor.close()
-    db.close()
-    transactions = {}
-    for row in rows:
-        transactions[row[0]] = list(row[1:])
-    return transactions
+    response = {"Expenses": get_all_expenses(user_id), "Incomes": get_all_incomes(user_id)}
+    return response
 
 def get_all_expenses(user_id):
     query = 'SELECT * from user_transactions WHERE user_id = %s AND transaction_type = %s'
