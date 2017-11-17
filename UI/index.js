@@ -114,3 +114,12 @@ function recordTransaction()
         document.getElementById("result").innerHTML = "Required fields cannot be empty.";
     }
 }
+
+function getTransactions()
+{
+    $.get("http://127.0.0.1:5000/getTransactions",{
+        
+    }, function (data, response) {
+        console.log(data);
+    });
+}

@@ -57,9 +57,19 @@
                         <button onclick="recordTransaction()">Submit</button>
                     </td>
                 </tr>
+                <tr>
+                    <td class="see-transactions-button-td" colspan="2">
+                        <button onclick="getTransactions()">See Transactions</button>
+                    </td>
+                </tr>
             </table>
         </div>
         <div>
+            <table class="all-transactions">
+                <thead>
+                    <th>Current Balance</th>
+                </thead>
+            </table>
             <p id="result"></p>
         </div> 
     </body>

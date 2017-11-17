@@ -98,6 +98,7 @@ def getTransactions():
     if user is not None:
         try:
             response = {"transactions":get_all_transactions(user.get_id()), "current_balance": user.get_current_balance()}
+            #response = get_all_expenses(user.get_id())
             return jsonify(response),200
         except Exception as ex:
             return jsonify({'message':str(ex)}),500
@@ -105,4 +106,4 @@ def getTransactions():
 
 if __name__ == '__main__':
     app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-    app.run()
+    app.run(debug=True)

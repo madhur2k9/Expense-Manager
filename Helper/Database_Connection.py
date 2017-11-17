@@ -131,9 +131,21 @@ def get_all_expenses(user_id):
     cursor.close()
     db.close()
     transactions = {}
+    keys_list = ["id", "transaction_type", "category", "title", "description", "amount", "date_added"]
+    expenses = {}
+    counter = 0
     for row in rows:
-        transactions[row[0]] = list(row[1:])
-    return transactions
+        expenses[counter] = {}
+        expenses[counter][keys_list[0]] = row[0]
+        expenses[counter][keys_list[1]] = row[1]
+        expenses[counter][keys_list[2]] = row[2]
+        expenses[counter][keys_list[3]] = row[3]
+        expenses[counter][keys_list[4]] = row[4]
+        expenses[counter][keys_list[5]] = row[5]
+        expenses[counter][keys_list[6]] = row[6]
+        print(counter)
+        counter += 1
+    return expenses
 
 def get_all_incomes(user_id):
     query = 'SELECT * from user_transactions WHERE user_id = %s AND transaction_type = %s'
@@ -147,9 +159,21 @@ def get_all_incomes(user_id):
     cursor.close()
     db.close()
     transactions = {}
+    keys_list = ["id", "transaction_type", "category", "title", "description", "amount", "date_added"]
+    incomes = {}
+    counter = 0
     for row in rows:
-        transactions[row[0]] = list(row[1:])
-    return transactions
+        incomes[counter] = {}
+        incomes[counter][keys_list[0]] = row[0]
+        incomes[counter][keys_list[1]] = row[1]
+        incomes[counter][keys_list[2]] = row[2]
+        incomes[counter][keys_list[3]] = row[3]
+        incomes[counter][keys_list[4]] = row[4]
+        incomes[counter][keys_list[5]] = row[5]
+        incomes[counter][keys_list[6]] = row[6]
+        print(counter)
+        counter += 1
+    return incomes
 
 def get_user():
     if user is not None:
